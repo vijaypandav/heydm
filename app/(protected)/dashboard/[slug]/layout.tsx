@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import Navbar from "@/components/global/navbar";
+import InfoBar from "@/components/global/infobar";
 import Sidebar from "@/components/global/sidebar";
 
 type Props = {
@@ -15,9 +15,10 @@ const layout = async ({ children, params }: Props) => {
     <div className="p-3">
       {/* Sidebar */}
       <Sidebar slug={slug} />
-      {/* Navbar */}
+      {/* InfoBar */}
       <div className="lg:ml-[250px] lg:pl-10 lg:py-5 flex flex-col overflow-auto">
-        <Navbar slug={slug} />
+        <InfoBar slug={slug} />
+        {children}
       </div>
     </div>
   );

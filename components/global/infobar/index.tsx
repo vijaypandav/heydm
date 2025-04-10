@@ -11,12 +11,16 @@ import ClerkAuthState from "../clerk-auth-state";
 import { SubscriptionPlan } from "../subscription-plan";
 import UpgradeCard from "../sidebar/upgrade";
 import { SheetTitle } from "@/components/ui/sheet";
+import CreateAutomation from "../create-automation";
+import Search from "./search";
+import Notifications from "./notifications";
+import MainBreadCrumb from "../main-bread-crumb";
 
 type Props = {
   slug: string;
 };
 
-const Navbar = ({ slug }: Props) => {
+const InfoBar = ({ slug }: Props) => {
   const { page } = usePath();
   const currentPage = PAGE_BREAD_CRUMBS.includes(page) || page === slug;
 
@@ -60,10 +64,14 @@ const Navbar = ({ slug }: Props) => {
               </div>
             </Sheet>
           </span>
+          <Search />
+          <CreateAutomation />
+          <Notifications />
         </div>
+        <MainBreadCrumb slug={slug} page={page === slug ? "Home" : page} />
       </div>
     )
   );
 };
 
-export default Navbar;
+export default InfoBar;
